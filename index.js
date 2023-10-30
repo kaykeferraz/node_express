@@ -1,10 +1,13 @@
-const { application } = require("express")
-const express = require("express")
+const express= require("express")
+const path = require("path")
 
 const app =express()
 
+const caminhoBasse = path.join(__dirname,"templates")
+
 app.get('/',(requisicao,resposta)=> {
-    resposta.send("Estou funcionando com express")
+    resposta.sendFile(`${caminhoBasse}/index.html`)
+  
 })
 
 app.listen(3000, () => {
